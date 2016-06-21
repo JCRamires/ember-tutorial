@@ -9,7 +9,13 @@
         About Us
     {{/link-to}}
 
-    {{#each model as |rental|}}
-        {{rental-listing rental=rental}}
-    {{/each}}
+    {{#list-filter filter=(action 'filterByCity') as |rentals|}}
+        <ul class="results">
+            {{#each rentals as |rentalUnit|}}
+                <li>
+                    {{rental-listing rental=rentalUnit}}
+                </li>
+            {{/each}}
+        </ul>
+    {{/list-filter}}
 </div>
